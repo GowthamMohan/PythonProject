@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Essen</title>
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="./static/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
+    
+    <style>
+
+          body {
+        font-size: 16px;
+        color: #000000;
+        background-color: #61122f;
+        font-family: 'Oxygen', sans-serif;
+      }
+
+      /** HEADER **/
+      #header-nav {
+        background-color: #f6b319;
+        border-radius: 0;
+        border: 0;
+      }
+
+      #logo-img {
+        background: url('../images/Essen.jpg') no-repeat;
+        width: 150px;
+        height: 150px;
+        margin: 10px 15px 10px 0;
+      }
+
+      .navbar-brand {
+        padding-top: 25px;
+      }
+      .navbar-brand h1 { /* Restaurant name */
+        font-family: 'Lora', serif;
+        color: #557c3e;
+        font-size: 1.5em;
+        text-transform: uppercase;
+        font-weight: bold;
+        text-shadow: 1px 1px 1px #222;
+        margin-top: 0;
+        margin-bottom: 0;
+        line-height: .75;
+      }
+      .navbar-brand a:hover, .navbar-brand a:focus {
+        text-decoration: none;
+      }
+      .navbar-brand p { /* Kosher cert */
+        color: #000;
+        text-transform: uppercase;
+        font-size: .7em;
+        margin-top: 15px;
+      }
+      .navbar-brand p span { /* Star-K */
+        vertical-align: middle;
+      }
+
+      #nav-list {
+        margin-top: 10px;
+      }
+      #nav-list a {
+        color: #951C49;
+        text-align: center;
+      }
+      #nav-list a:hover {
+        background: #E7E7E7;
+      }
+      #nav-list a span {
+        font-size: 1.8em;
+      }
+
+      .navbar-header button.navbar-toggle, .navbar-header .icon-bar {
+        border: 1px solid #61122f;
+      }
+      .navbar-header button.navbar-toggle {
+        clear: both;
+        margin-top: -30px;
+      }
+      /* END HEADER */
+
+      /* FOOTER */
+      .panel-footer {
+        margin-top: 30px;
+        padding-top: 35px;
+        padding-bottom: 30px;
+        background-color: #222;
+        border-top: 0;
+      }
+      .panel-footer div.row {
+        margin-bottom: 35px;
+      }
+
+      /* HOME PAGE */
+      .container .jumbotron {
+        box-shadow: 0 0 50px #3F0C1F;
+        border: 2px solid #3F0C1F;
+      }
+
+      /*-- search --*/
+      .agileits_search {
+          width: 50%;
+          margin: 3em 0 0;
+
+
+      }
+      .agileits_search form {
+          border: 30px solid rgba(0, 0, 0, 0.55);
+
+      }
+
+      .agileits_search input[type="text"], #agileinfo_search {
+          outline: none;
+          border:none;
+          background: #fff;
+          color: #999;
+          padding: 1.1em 1em;
+          font-size: 1em;
+          float: left;
+      }
+      .agileits_search input[type="text"]{
+        width: 40%;
+      }
+      #agileinfo_search {
+          width: 15%;
+          background: #e0e3e5;
+          padding: 1.1em 1em;
+          color: #555;
+      }
+      .agileits_search input[type="submit"] {
+          outline: none;
+          border: none;
+          background: #fd463e;
+          color: #fff;
+          padding: 1.1em 1em;
+          font-size: 1em;
+          width: 29%;
+        -webkit-transition:.5s all;
+        -moz-transition:.5s all;
+        -o-transition:.5s all;
+        -ms-transition:.5s all;
+        transition:.5s all;
+      }
+      .agileits_search input[type="submit"]:hover{
+        background:#f71d16;
+      }
+      .agileits_search form {
+          border: 25px solid rgba(0, 0, 0, 0.55);
+      }
+      .agileits_search {
+          width: 75%;
+          margin: 1em 0 0;
+      }
+
+      #menu-tile, #specials-tile, #map-tile {
+        height: 250px;
+        width: 100%;
+        margin-bottom: 15px;
+        position: relative;
+        border: 2px solid #3F0C1F;
+        overflow: hidden;
+      }
+      #menu-tile:hover, #specials-tile:hover, #map-tile:hover {
+        box-shadow: 0 1px 5px 1px #cccccc;
+      }
+      #menu-tile {
+        background: url('../images/menu-tile.jpg') no-repeat;
+        background-position: center;
+      }
+      #specials-tile {
+        background: url('../images/specials-tile.jpg') no-repeat;
+        background-position: center;
+      }
+      #menu-tile span, #specials-tile span, #map-tile span {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        text-align: center;
+        font-size: 1.6em;
+        text-transform: uppercase;
+        background-color: #000;
+        color: #fff;
+        opacity: .8;
+      }
+   /* Footer */
+        .panel-footer section {
+          margin-bottom: 30px;
+          text-align: center;
+        }
+        .panel-footer section:nth-child(3) {
+          margin-bottom: 0; /* margin already exists on the whole row */
+        }
+        .panel-footer section hr {
+          width: 50%;
+        }
+        /* End Footer */
+
+        /* Home Page */
+        .container .jumbotron {
+          margin-top: 30px;
+          padding: 0;
+        }
+      }
+
+
+      table, th, td {
+        border : 1px solid black;
+      }
+
+      th, td {
+        padding: 15px;
+      }
+
+      #myBtn:disabled {
+
+      color: #dddddd;
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <div class="container">
+      <div>
+      
+          <header>
+          <nav id="header-nav" class="navbar navbar-default">
+            <div class="container">
+              <div class="navbar-header">
+                <a href="index.html" class="pull-left visible-md visible-lg">
+                  <div id="logo-img"></div>
+                </a>
+
+                <div class="navbar-brand">
+                  <a href="index.html"><h1>Essen</h1></a>
+                  <p>
+                    <span>Choose your food</span>
+                  </p>
+                </div>
+                
+              </div>
+
+            </div><!-- .collapse .navbar-collapse -->
+            
+      
+          </nav><!-- #header-nav -->
+          </header>
+
+     
+        <div id="main-content" class="container">
+          <div class="agileits_search">    
+
+
+
+            <form name="Search" action="/search" method="post" style="border-bottom-width: 00px;">
+              <input type="text" name="searchbox" style="
+              width: 569px;">
+              <input type="submit" value="Search">
+            </form>
+
+
+            <form name="Update" action="/update" method="post" style="border-bottom-width: 00px;border-right-width: 00px;border-left-width: 00px;" >
+              <input type="submit" id="myBtn" value="Update">
+            </form>
+
+
+          </div>
+          {% block body %}{% endblock %}
+        </div>
+        <footer class="panel-footer">
+          <div class="container">
+            <div class="col-md-4 col-sm-12 col-xs-12" pull-left>
+              <a href="https://www.google.com/maps/place/Delhi+Fresh/@50.829522,12.92294,14z/data=!4m5!3m4!1s0x0:0x2ef2fd3a1e67e984!8m2!3d50.8295221!4d12.9229396?hl=en-IN" target="_blank">
+                <div id="map-tile">
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2520.0884548674744!2d12.920750915355647!3d50.82952546785936!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a7465d45d56c83%3A0x2ef2fd3a1e67e984!2sDelhi+Fresh!5e0!3m2!1sen!2sde!4v1530476241839" width="500" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+                  <span>Delhi Fresh</span>
+                </div>
+              </a>
+            </div>
+            <div class="col-md-4 col-sm-12 col-xs-12" pull-left>
+              <a href="https://www.google.de/search?q=food+hd+wallpaper&oq=food+hd+wallpaper&aqs=chrome.0.0l6.2293j0j9&sourceid=chrome&ie=UTF-8" target="_blank">
+                <div id="map-tile">
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2493.4486655719884!2d12.37165281537696!3d51.32126697960502!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a6f9d27e28478f%3A0xdfb9f16ac39b5d9a!2sGanesha+Indische+Restaurant!5e0!3m2!1sen!2sde!4v1529872545002" width="500" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+                  <span>Ganesha Indische Restaurant</span>
+                </div>
+              </a>
+            </div>
+            <div class="col-md-4 col-sm-12 col-xs-12" pull-left>
+              <a  href="https://www.google.de/maps/place/Maharani/@50.74567,12.66461,15z/data=!4m5!3m4!1s0x0:0x29e948de9f3a77b!8m2!3d50.74567!4d12.66461" target="_blank">
+                <div id="map-tile">
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10098.451200614052!2d12.66461!3d50.74567!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x29e948de9f3a77b!2sMaharani!5e0!3m2!1sen!2sde!4v1529872825303" width="500" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+                  <span>Maharani</span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+    <script>
+      function myFunction() 
+      {
+        document.getElementById("myBtn").disabled = true;
+        setTimeout(function()
+        {
+          document.getElementById("myBtn").disabled = false;
+        }, 2000000);
+        
+      }
+    </script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="//cdn.ckeditor.com/4.6.2/basic/ckeditor.js"></script>
+    <script src="./static/jquery-2.1.4.min.js"></script>
+    <script src="./static/bootstrap.min.js"></script>
+    <script src="./static/ajax-utils.js"></script>
+    <script src="./static/script.js"></script>
+    <script type="text/javascript">
+      CKEDITOR.replace('editor')
+    </script>
+  </body>
+</html>

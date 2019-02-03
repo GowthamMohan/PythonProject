@@ -1,0 +1,39 @@
+
+{% extends 'layout.html' %}
+{% block body %}
+  <h3>Search results</h3>
+
+  {% if not item %}
+    <span> Dish not available</span>
+
+  {% else %}
+
+      <table class="list-group-item" style="width:100%">
+        <tr>
+          <th>Dish</th>
+          <th>&nbsp;&nbsp;&nbsp;&nbsp;</th>
+          <th>Description</th>
+          <th>&nbsp;&nbsp;&nbsp;&nbsp;</th>
+          <th>Price</th>
+          <th>&nbsp;&nbsp;&nbsp;&nbsp;</th>
+          <th>Restauarant</th>
+          <th>&nbsp;&nbsp;&nbsp;&nbsp;</th>
+        </tr>
+
+        {% for item in item %}
+
+            <tr>
+              <td>{{item.Dish}}</td>
+              <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+              <td>{{item.Description}}</td>
+              <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+              <td>{{item.Price}}</td>
+              <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+              <td>{{item.Restaurant}}</td>
+              <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            </tr>
+
+        {% endfor %}
+      </table>
+  {% endif %}
+{% endblock %}
